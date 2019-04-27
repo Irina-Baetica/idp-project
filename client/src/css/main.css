@@ -1,0 +1,112 @@
+body {
+    background-color: #B0C4DE;
+    margin: 0;
+}
+
+hr {
+    width:100px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: grey;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+header a {
+    margin: 20px 20px 20px 20px;
+}
+
+.logout {
+    margin-top: 10px;
+}
+
+.md-icon-button {
+  position: absolute;
+  right: 0px;
+  margin: 0;
+}
+
+.container{
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+
+.content {
+    display:flex;
+    flex-flow: column nowrap;
+    overflow-y: auto;
+    flex: 1 1 100%;
+    height: 100%
+}
+
+
+.main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.container-pages {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    overflow: auto;
+}
+
+.main_content {
+    width: 500px;
+    margin: 20px;
+}
+
+.width-300 {
+    width:300px;
+}
+.height-300 {
+    height: 200px;
+}
+
+.material-icons.md-70 { 
+    font-size: 70px; 
+}
+
+.material-icons.md-48 { 
+    font-size: 48px; 
+}
+
+.md-sidenav-left .md-theme-indigo, .md-sidenav-left .nav-theme {
+    background-color: #4529a0;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 30%;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

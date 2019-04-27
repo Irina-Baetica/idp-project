@@ -1,0 +1,17 @@
+<br>
+<br>
+<div class="alert" ng-show="error">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>{{::getTextById('errorMessage')}}</strong>
+</div>
+<div>
+	E-mail: <input class="login" type="text" ng-model="email"><br><br>
+	{{::getTextById('login.loginPassword')}}: <input class="login" type="password" ng-model="password">
+	<br><br>
+	Alege scoala: <select ng-model="school">
+      <option ng-repeat="ischool in schools" value={{ischool.id}}>{{displaySchool(ischool)}}</option>
+    </select><br><br>
+    Numar matricol: <input class="login" type="text" ng-model="number"><br><br>
+	<button ng-click="newAccount()">{{::getTextById('login.loginNewAccount')}}</button>
+</div>
+<br>

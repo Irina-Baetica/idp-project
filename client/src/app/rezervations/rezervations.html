@@ -1,0 +1,32 @@
+<div ng-model="success" ng-show="success" ng-repeat="rezervation in rezervations" class="width-300">
+    <md-card md-theme="dark-purple" md-theme-watch class="height-300">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{rezervation.id + ". " + rezervation.title}}</span>
+                <span>{{rezervation.author}}</span>
+                <span>{{rezervation.date}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <!-- <i class="material-icons md-70">{{displayDeviceType(device.device_os)}}</i> -->
+            </md-card-title-media>
+        </md-card-title>
+    </md-card>
+</div>
+
+<div ng-model="error" ng-show="error">
+    <div class="width-300">
+        <md-card md-theme="dark-purple" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{errorResponse}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <i class="material-icons md-48"
+                        ng-model="errorMaterialIcon"
+                        ng-bind="errorMaterialIcon">
+                    </i>
+                </md-card-title-media>
+            </md-card-title>
+        </md-card>
+    </div>
+</div>

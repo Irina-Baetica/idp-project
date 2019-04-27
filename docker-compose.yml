@@ -1,18 +1,69 @@
-version: "3"
+version: '3'
 services:
-  web:
-    image:  whale1234/idp:example
-    deploy:
-      replicas: 4
-      resources:
-        limits:
-          cpus: "0.2"
-          memory: 50M
-      restart_policy:
-        condition: on-failure
+#   db:
+#     image: "postgres:9.6.5"
+#     networks:
+#       - db_nw
+#   flaskapp:
+#     build: .
+#     volumes:
+#       - .:/opt/services/flaskapp/src
+#     networks:
+#       - db_nw
+#       - web_nw
+#   nginx:
+#     image: "nginx:1.13.5"
+#     ports:
+#       - "8080:80"
+#     volumes:
+#       - ./conf.d:/etc/nginx/conf.d
+#     networks:
+#       - web_nw
+# networks:
+#   db_nw:
+#     driver: bridge
+#   web_nw:
+#     driver: bridge
+
+  db:
+    image: mysql:5.7
+    container_name: db
     ports:
-      - "8888:5000"
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: parola
+    deploy:
+      replicas: 2
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
     networks:
-      - webnet
+      - db_nw
+  app:
+    build: ./app
+    container_name: app
+    links:
+      - db
+    ports:
+      - "5000:5000"
+    environment:
+      WAIT_HOSTS: db:3306
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - db_nw
+      - web_nw
+  client:
+    build: ./client
+    container_name: client
+    ports:
+      - "8084:80"
+    deploy:
+      replicas: 2
+    networks:
+      - web_nw
 networks:
-  webnet:
+  db_nw:
+    driver: bridge
+  web_nw:
+    driver: bridge

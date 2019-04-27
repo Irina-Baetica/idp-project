@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" ng-app="myApp"> 
+<head> 
+	<base href="/">
+    <meta charset="UTF-8">
+<<<<<<< HEAD
+    <title ng-model="title"
+            ng-bind="title">
+    </title>
+=======
+    <title> Tema12 </title>
+>>>>>>> 3aa667a2e1db1ece2b2340c76cde43ce87fa4a03
+
+    <link rel= "stylesheet" href= "css/angular-material.min.css">
+    <link rel= "stylesheet" href= "css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="common/angular.min.js"></script>  
+    <script src="common/angular-route.min.js"></script>  
+    <script src="common/angular-cookies.min.js"></script>  
+    <script src="common/angular-animate.min.js"></script>  
+    <script src="common/angular-aria.min.js"></script>  
+    <script src="common/angular-messages.min.js"></script>  
+    <script src="common/angular-material.min.js"></script>  
+    <script src="app/app.js"></script>
+    <script src="app/home/home.js"></script>
+    <script src="app/login/login.js"></script>
+    <script src="common/services/logoutService.js"></script>
+    <script src="common/services/valuesService.js"></script>
+    <script src="common/services/devicesService.js"></script>
+    <script src="common/services/detailsService.js"></script>
+    <script src="app/devices/devices.js"></script>
+    <script src="app/details/details.js"></script>
+</head>
+
+<<<<<<< HEAD
+<body>
+	<header>
+    	<h2 class="text-center"
+            ng-model="header"
+            ng-bind="header">
+        </h2>
+        <md-button ng-model="showLogoutButton" 
+                    ng-show="showLogoutButton" 
+                    class="md-icon-button" 
+                    aria-label="More" 
+                    ng-click="logout()">
+
+            <md-icon class="logout" 
+                    md-svg-icon="assets/images/baseline_arrow_forward_black_48dp.svg">       
+            </md-icon>
+        </md-button>
+  	</header>
+
+	<div ng-controller="mainController" layout="column" ng-cloak>
+=======
+>>>>>>> 3aa667a2e1db1ece2b2340c76cde43ce87fa4a03
+
+<body>
+
+    <div class="container" ng-controller="mainController">
+        <md-sidenav
+            class="md-sidenav-left"
+            md-component-id="left"
+            ng-model="showSidenav"
+            md-is-locked-open="showSidenav"
+            md-whiteframe="4">
+
+<<<<<<< HEAD
+                <md-toolbar class="md-theme-indigo">
+                    <h1 class="md-toolbar-tools"
+                        ng-model="toolbar"
+                        ng-bind="toolbar">
+                    </h1>
+                </md-toolbar>
+                    <br>
+                    <br>
+                    <a ng-model="showDevicesButton" 
+                        ng-show="showDevicesButton" 
+                        href="/devices" 
+                        ng-model="devicesLinkDisplay" 
+                        ng-bind="devicesLinkDisplay">
+                    </a>
+                    <br>
+                    <br>
+            </md-sidenav>
+=======
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">Meniu</h1>
+            </md-toolbar>
+                <br>
+                <br>
+                <a ng-model="showDevicesButton" ng-show="showDevicesButton" href="/devices">My devices</a>
+                <br>
+                <br>
+        </md-sidenav>
+>>>>>>> 3aa667a2e1db1ece2b2340c76cde43ce87fa4a03
+
+        <md-content class="content" flex layout-padding>
+            <header>
+                <h2 class="text-center">{{header}}</h2>
+                <md-button ng-model="showLogoutButton" ng-show="showLogoutButton" class="md-icon-button" aria-label="More" ng-click="logout()">
+                    <md-icon class="logout" md-svg-icon="assets/images/baseline_arrow_forward_black_48dp.svg"></md-icon>
+                </md-button>
+            </header>
+
+            <div ng-view class="container-pages"></div>
+        	<footer class="text-center">
+              	<p>Posted by: me</p>
+              	<p>Contact info:...</p>
+          	</footer>
+        </md-content>
+        
+    </div>
+
+    
+<<<<<<< HEAD
+	<footer class="text-center">
+      	<p ng-model="author"
+            ng-bind="author">
+        </p>
+      	<p ng-model="contact"
+            ng-bind="contact">
+        </p>
+  	</footer>
+=======
+>>>>>>> 3aa667a2e1db1ece2b2340c76cde43ce87fa4a03
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" ng-app="myApp"> 
+<head> 
+    <base href="/">
+    <meta charset="UTF-8">
+    <title>{{getTextById('index.title')}}</title>
+
+    <link rel= "stylesheet" href= "css/angular-material.min.css">
+    <link rel= "stylesheet" href= "css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="common/angular.min.js"></script>  
+    <script src="common/angular-route.min.js"></script>  
+    <script src="common/angular-cookies.min.js"></script>  
+    <script src="common/angular-animate.min.js"></script>  
+    <script src="common/angular-aria.min.js"></script>  
+    <script src="common/angular-messages.min.js"></script>  
+    <script src="common/angular-material.min.js"></script>  
+    <script src="app/app.js"></script>
+    <script src="app/home/home.js"></script>
+    <script src="app/login/login.js"></script>
+    <script src="common/services/textService.js"></script>
+    <script src="common/services/logoutService.js"></script>
+    <script src="common/services/loginService.js"></script>
+    <script src="common/services/accountService.js"></script>
+    <script src="common/services/valuesService.js"></script>
+    <script src="common/services/itemsService.js"></script>
+    <script src="common/services/rezervationsService.js"></script>
+    <script src="app/rezervations/rezervations.js"></script>
+    <script src="app/items/items.js"></script>
+    <script src="app/account/account.js"></script>
+</head>
+
+
+<body ng-controller="mainController">
+
+    <div class="container">
+        <md-sidenav
+            class="md-sidenav-left"
+            md-component-id="left"
+            ng-model="showSidenav"
+            md-is-locked-open="showSidenav"
+            md-whiteframe="4">
+
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">{{getTextById('index.toolbar')}}</h1>
+            </md-toolbar>
+                <br>
+                <br>
+                <a href="/rezervations"
+                    aria-label="DevDetails">
+                    {{getTextById('index.devicesLinkDisplay')}}
+                </a>
+                <br>
+                <br>
+                <a href="/items"
+                    aria-label="DevDetails">
+                    Vezi toate
+                </a>
+                <br>
+                <br>
+                <!-- <a href="#"
+                    aria-label="Languages"
+                    ng-click="changeLanguage(getTextById('index.language'))">
+                    {{getTextById('index.language')}}
+                </a> -->
+        </md-sidenav>
+
+        <md-content class="content" flex layout-padding>
+            <header>
+                <h2 class="text-center">{{getTextById('index.header')}}</h2>
+
+                <md-button ng-model="showLogoutButton" 
+                            ng-show="showLogoutButton" 
+                            class="md-icon-button" 
+                            aria-label="More" 
+                            ng-click="logout()">
+
+                    <md-icon class="logout" 
+                            md-svg-icon="assets/images/baseline_arrow_forward_black_48dp.svg">
+                    </md-icon>
+
+                </md-button>
+            </header>
+
+            <div ng-view class="container-pages"></div>
+
+            <!-- <footer class="text-center">
+                    <p>{{getTextById('index.author')}}</p>
+                    <p>{{getTextById('index.contact')}}</p>
+              </footer> -->
+        </md-content>
+    </div>
+
+</body>
+</html>

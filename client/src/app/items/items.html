@@ -1,0 +1,35 @@
+<div ng-model="success" ng-show="success" ng-repeat="book in books" class="width-300">
+    <md-card md-theme="dark-purple" md-theme-watch class="height-300">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{book.id + ". " + book.title}}</span>
+                <span>{{book.author}}</span>
+                <span>{{book.nr}}</span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <!-- <i class="material-icons md-70">{{displayDeviceType(device.device_os)}}</i> -->
+            </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button href="" aria-label="details" ng-click="rezerve(book.id)">Rezerva</md-button>
+        </md-card-actions>
+    </md-card>
+</div>
+
+<div ng-model="error" ng-show="error">
+    <div class="width-300">
+        <md-card md-theme="dark-purple" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{errorResponse}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <i class="material-icons md-48"
+                        ng-model="errorMaterialIcon"
+                        ng-bind="errorMaterialIcon">
+                    </i>
+                </md-card-title-media>
+            </md-card-title>
+        </md-card>
+    </div>
+</div>
