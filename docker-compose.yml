@@ -26,23 +26,27 @@ services:
 #     driver: bridge
 
   db:
-    image: mysql:5.7
-    container_name: db
+    image: whale1234/idp2:third top
+    # container_name: db
     ports:
       - "32000:3306"
     environment:
       MYSQL_ROOT_PASSWORD: parola
     deploy:
-      replicas: 2
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == worker]
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
-    networks:
-      - db_nw
+    # networks:
+    #   - db_nw
   app:
-    build: ./app
-    container_name: app
-    links:
-      - db
+    image: whale1234/idp2:first
+    # container_name: app
+    # links:
+    #   - db
     ports:
       - "5000:5000"
     environment:
@@ -50,20 +54,24 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
-    networks:
-      - db_nw
-      - web_nw
+    # networks:
+    #   - db_nw
+    #   - web_nw
   client:
-    build: ./client
-    container_name: client
+    image: whale1234/idp2:second top
+    # container_name: client
     ports:
       - "8084:80"
     deploy:
-      replicas: 2
-    networks:
-      - web_nw
-networks:
-  db_nw:
-    driver: bridge
-  web_nw:
-    driver: bridge
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == worker]
+    # networks:
+    #   - web_nw
+# networks:
+#   db_nw:
+#     driver: bridge
+#   web_nw:
+#     driver: bridge
