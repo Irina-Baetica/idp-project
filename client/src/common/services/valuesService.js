@@ -2,7 +2,7 @@ angular.module('myApp')
 
 .factory('ConstValuesService',
 function () {
-  	var deviceInfoURL = "http://127.0.0.1:5000/";
+  	var deviceInfoURL = "http://0.0.0.0:5000/";
   	var loginCookieName = "loginCookie";
   	var languageCookieName = "languageCookie";
   	var errorMaterialIcon = "error_outline";

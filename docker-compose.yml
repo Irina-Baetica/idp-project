@@ -33,7 +33,7 @@ services:
 
 
   db:
-    image: whale1234/idp2:third
+    image: whale1234/idp22:third1
     #build: ./db
     ports:
       - "32000:3306"
@@ -46,9 +46,9 @@ services:
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
     networks:
-      - app
+      - webnet
   app:
-    image: whale1234/idp2:first
+    image: whale1234/idp22:first1
     #build: ./app
     ports:
       - "5000:5000"
@@ -58,9 +58,9 @@ services:
       placement:
         constraints: [node.role == manager]
     networks:
-      - app
+      - webnet
   client:
-    image: whale1234/idp2:second
+    image: whale1234/idp22:second1
     #build: ./client
     ports:
       - "8084:80"
@@ -69,6 +69,6 @@ services:
       restart_policy:
         condition: on-failure
     networks:
-      - app
+      - webnet
 networks:
-  app:
+  webnet:
