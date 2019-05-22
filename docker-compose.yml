@@ -33,7 +33,7 @@ services:
 
 
   db:
-    image: whale1234/idp22:third1
+    image: whale1234/idp222:third1
     #build: ./db
     ports:
       - "32000:3306"
@@ -48,7 +48,7 @@ services:
     networks:
       - webnet
   app:
-    image: whale1234/idp22:first1
+    image: whale1234/idp222:first1
     #build: ./app
     ports:
       - "5000:5000"
@@ -60,7 +60,7 @@ services:
     networks:
       - webnet
   client:
-    image: whale1234/idp22:second1
+    image: whale1234/idp222:second1
     #build: ./client
     ports:
       - "8084:80"
