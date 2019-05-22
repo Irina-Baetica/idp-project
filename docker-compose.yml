@@ -1,5 +1,9 @@
 version: '3'
 services:
+
+
+
+
 #   db:
 #     image: "postgres:9.6.5"
 #     networks:
@@ -25,9 +29,12 @@ services:
 #   web_nw:
 #     driver: bridge
 
+
+
+
   db:
-    image: whale1234/idp2:third top
-    # container_name: db
+    image: whale1234/idp2:third
+    #build: ./db
     ports:
       - "32000:3306"
     environment:
@@ -36,17 +43,13 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
-      placement:
-        constraints: [node.role == worker]
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
-    # networks:
-    #   - db_nw
+    networks:
+      - app
   app:
     image: whale1234/idp2:first
-    # container_name: app
-    # links:
-    #   - db
+    #build: ./app
     ports:
       - "5000:5000"
     environment:
@@ -54,24 +57,18 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
-    # networks:
-    #   - db_nw
-    #   - web_nw
+    networks:
+      - app
   client:
-    image: whale1234/idp2:second top
-    # container_name: client
+    image: whale1234/idp2:second
+    #build: ./client
     ports:
       - "8084:80"
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
-      placement:
-        constraints: [node.role == worker]
-    # networks:
-    #   - web_nw
-# networks:
-#   db_nw:
-#     driver: bridge
-#   web_nw:
-#     driver: bridge
+    networks:
+      - app
+networks:
+  app:

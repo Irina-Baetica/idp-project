@@ -1,10 +1,12 @@
 from flask import Flask, json
 from flask import request, jsonify
-
+import time
 from flask_cors import CORS
 
 import mysql.connector
 from math import floor
+
+time.sleep(60)
 
 app = Flask(__name__)
 CORS(app)
@@ -15,6 +17,7 @@ app.config["DEBUG"] = True
 adminPass = "He11obitches"
 mydb = None
 mycursor = None
+# era db inainte
 mydb = mysql.connector.connect(
 		host = "db",
 		user = "root",
@@ -490,5 +493,5 @@ def hello():
 
 
 if __name__ == '__main__':
-	# app.run(host='0.0.0.0')
-	app.run()
+	app.run(host='0.0.0.0')
+	# app.run()
